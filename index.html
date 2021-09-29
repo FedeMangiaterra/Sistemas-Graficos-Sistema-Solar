@@ -408,8 +408,9 @@
             mat4.translate(mSistemaSolar,mSistemaSolar,[60,0,0]);
 
             // tierra
-            mTierra=mat4.create(); 
-            mat4.rotate(mTierra, mSistemaSolar, Math.PI/7.8, [1,0,0]); //Inclinacion del eje de la tierra
+            mTierra=mat4.create();
+            mat4.rotate(mTierra, mSistemaSolar, tiempo*Math.PI/3, [0,-1,0]); //Rotacion para contrarrestar la de la tierra alrededor del sol, para que la inclinacion del eje sea siempre para el mismo lado
+            mat4.rotate(mTierra, mTierra, Math.PI/7.8, [1,0,0]); //Inclinacion del eje de la tierra
             mat4.rotate(mTierra, mTierra, tiempo*Math.PI*10, [0,1,0]); //Rotacion de la tierra sobre su eje   
             setTransform(tierra,mTierra);
   
